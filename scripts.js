@@ -6,15 +6,16 @@ async function getCities() {
         const buttonText = document.getElementById("get-city-button-text")
         buttonText.innerHTML = "Loading..."
 
-        const response = await fetch("https://countriesnow.space/api/v0.1/countries/population/cities")
-        const json = await response.json()
+        const response = await axios("https://countriesnow.space/api/v0.1/countries/population/cities")
+        console.log(response)
+       
 
         buttonText.innerHTML = "Get all cities"
 
        
-        list =json.data
+        list =response.data.data;
 
-        renderTable(json.data)
+        renderTable(response.data.data);
        
 
     }
